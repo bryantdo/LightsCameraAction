@@ -23,3 +23,40 @@ Controls in the Configuration group are used to specify, load, and save plugin s
 Used to load a previously saved .configuration file. Settings which are saved include lights IP address and port, time and units between acquired images, time and units between wavelengths command and image capture, and total number of image acquisition events to conduct.
 
 ####Save Configuration
+Creates a .configuration file to save settings. Settings saved include ights IP address and port, time and units between acquired images, time and units between wavelengths command and image capture, and total number of image acquisition events to conduct.
+
+####Specify Image Save Location
+Chooses a directory in which to save acquired images.
+
+####Lights IP Address : Port
+Location on the network and port that should be used to communicate via Telnet with your Heliospectra lights.
+
+####Time and Units Between Acquired Images
+Specifices the period over which to conduct the "issue WL command -> delay -> capture image" routine.
+
+####WL Command Sent to Image Delay
+Specifies the time between sending the wavelengths command (default: setall0, editable by user) and acquiring an image.
+
+#### Number of Images to Acquire
+Specifies the number of image acquisition routines to run.
+
+###Testing
+####Test Lights ON/OFF
+Sends over Telnet a "hello" command using the IP address and port specified in the Configuration group.
+
+####Test Image Acquisition
+Not yet implemented.
+
+###Wavelenths
+####Send getwl command
+Sends over Telnet a "getwl" command using the IP address and port specified in the Configuration group. This allows the user to specify a "setwlsrelpower" command appropriately based on the lights' reply to the getwl command.
+
+####WL Command
+By default the wavelengths command is "setall0", meaning that lights will be set as "off before imaging. This can be changed by the user, mostlikely replaced with a "setwlsrelpower" command.
+
+###Run
+####Start Imaging Job
+Begins the image acquisition routine using settings specified in the Configuration and Wavelengths groups.
+
+####Require Lights Schedule Running
+At the end of every imaging cycle this plugin executes a "startSchedule" command on the lights. To ensure that a schedule is already running before begining each image acquisition event, check this box. Otherwise, uncheck.
