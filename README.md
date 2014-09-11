@@ -1,7 +1,7 @@
 LightsCameraAction
 ==================
 
-Plugin for Micro-Manger to tightly integrate imaging with Heliospectra.
+Plugin for Micro-Manger to tightly integrate imaging through the Micro-Manager API with contorl of Heliospectra lights via Telnet.
 
 Description
 -----------
