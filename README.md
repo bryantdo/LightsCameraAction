@@ -6,6 +6,14 @@ Plugin for Micro-Manger to tightly integrate imaging through the Micro-Manager A
 ##Description
 This software is a plugin for Micro-Manger (https://www.micro-manager.org/) used to enable control of Heliospectra lights (http://www.heliospectra.com/) and an imaging platform with high time-precision. Using this plugin one can orchestrate timing of lights actions with imaging actions over some period and under an arbitraty schedule.
 
+At its core this plugin conducts some number of image acquisition events, where each image acquisition event is structured as:
+* Send "stopSchedule" command to lights;
+* Send a wavelengths command to lights, by default "setAll 0", ie. turn lights off;
+* Wait some amount of time, specified by the user;
+* Acquire an image using the Micro-Manager API. Camera settings such as exposure time should be specified in the Micro-Manager interface;
+* Send a "startSchedule" command to the lights.
+Any number of image acquisition events can be performed, as specified by the user, allowing for time-course imaging, while accounting with high precision the time between lights commands and camera commands.
+
 ##Assumptions
 We built and tested this software using Micro-Manager versions 1.4.16 and and 1.4.18. One should be careful to compile this software using the same Java version as the version of the Java VM used to run Micro-Manager. For example, if this software is built using version 1.7 of the Java SDK, be sure that your instalation of Micro-Manager is executed using version 1.7 of the Java VM. This can be tricky because, for example, on OS X, one's Netbeans platform may be configured to build using version 1.7 of the Java SDK even though the system default Java version is 1.6.
 
