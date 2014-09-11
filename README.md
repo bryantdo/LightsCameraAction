@@ -13,7 +13,7 @@ At its core this plugin conducts some number of image acquisition events, where 
 * Acquire an image using the Micro-Manager API - camera settings such as exposure time are specified in the Micro-Manager interface;
 * Send a "startSchedule" command to the lights.
 
-Any number of image acquisition events can be performed, as specified by the user. This allows for time-course imaging, while accounting with high precision the time between lights commands and camera commands.
+Any number of image acquisition events can be performed, as specified by the user. This allows for time-course imaging, while controlling with high precision the time between lights commands and camera commands.
 
 ##Assumptions
 We built and tested this software using Micro-Manager versions 1.4.16 and 1.4.18. One should be careful to compile this software using the same Java version as the version of the Java VM used to run Micro-Manager. For example, if this software is built using version 1.7 of the Java SDK, be sure that your installation of Micro-Manager is executed using version 1.7 of the Java VM. This can be tricky because, for example, on OS X, one's Netbeans platform may be configured to build using version 1.7 of the Java SDK even though the system default Java version is 1.6.
