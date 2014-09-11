@@ -395,7 +395,7 @@ public class PluginInterface extends javax.swing.JFrame {
         jPanelWavelengths.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabelWavelenghts.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jLabelWavelenghts.setText("Wavelenghts");
+        jLabelWavelenghts.setText("Wavelengths");
 
         jButtonGetwl.setText("Send getwl command");
         jButtonGetwl.addActionListener(new java.awt.event.ActionListener() {
