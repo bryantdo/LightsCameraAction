@@ -10,7 +10,7 @@ At its core this plugin conducts some number of image acquisition events, where 
 * Send "stopSchedule" command to lights;
 * Send a wavelengths command to lights, by default "setAll 0", ie. turn lights off. The actual WL command is user modifiable;
 * Wait some amount of time, specified by the user;
-* Acquire an image using the Micro-Manager API. Camera settings such as exposure time should be specified in the Micro-Manager interface;
+* Acquire an image using the Micro-Manager API - camera settings such as exposure time are specified in the Micro-Manager interface;
 * Send a "startSchedule" command to the lights.
 
 Any number of image acquisition events can be performed, as specified by the user. This allows for time-course imaging, while accounting with high precision the time between lights commands and camera commands.
