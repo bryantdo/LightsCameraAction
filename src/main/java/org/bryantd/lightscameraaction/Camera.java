@@ -13,10 +13,6 @@ import ij.process.ImageProcessor;
 import ij.process.ShortProcessor;
 import mmcorej.CMMCore;
 
-/**
- *
- * @author bryantd
- */
 public class Camera {
     private final CMMCore cmmcore_;
     private final String imageSaveLocation_;

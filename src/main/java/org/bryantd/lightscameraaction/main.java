@@ -12,7 +12,7 @@ package org.bryantd.lightscameraaction;
  */
 public class main {
     public static void main(String[] args) {
-        LightsCameraPlugin lightsCameraPlugin = new LightsCameraPlugin();
+        //LightsCameraPlugin lightsCameraPlugin = new LightsCameraPlugin();
         PluginInterface pluginInterface = new PluginInterface(null);
         pluginInterface.setVisible(true);
     }
