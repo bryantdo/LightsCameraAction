@@ -12,6 +12,7 @@ At its core this plugin conducts some number of image acquisition events, where 
 * Wait some amount of time, specified by the user;
 * Acquire an image using the Micro-Manager API. Camera settings such as exposure time should be specified in the Micro-Manager interface;
 * Send a "startSchedule" command to the lights.
+
 Any number of image acquisition events can be performed, as specified by the user, allowing for time-course imaging, while accounting with high precision the time between lights commands and camera commands.
 
 ##Assumptions
