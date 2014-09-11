@@ -119,7 +119,7 @@ public class PluginInterface extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(700, 950));
         setPreferredSize(new java.awt.Dimension(700, 950));
 
-        jPanelConfiguration.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        jPanelConfiguration.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButtonImageSaveLocation.setText("Specify Image Save Location");
         jButtonImageSaveLocation.addActionListener(new java.awt.event.ActionListener() {
@@ -281,7 +281,7 @@ public class PluginInterface extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanelTesting.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        jPanelTesting.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabelTesting.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabelTesting.setText("Testing");
@@ -321,7 +321,7 @@ public class PluginInterface extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanelRun.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        jPanelRun.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabelRun.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabelRun.setText("Run");
@@ -362,7 +362,7 @@ public class PluginInterface extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanelOutput.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        jPanelOutput.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jTextAreaStatus.setEditable(false);
         jTextAreaStatus.setBackground(new java.awt.Color(0, 0, 0));
@@ -392,7 +392,7 @@ public class PluginInterface extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanelWavelengths.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        jPanelWavelengths.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabelWavelenghts.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabelWavelenghts.setText("Wavelenghts");
@@ -668,7 +668,20 @@ public class PluginInterface extends javax.swing.JFrame {
                         try {
                             StringBuilder lightsReturn = new StringBuilder();
                             success = lights_.issueCommands(Arrays.asList(LightsTask.GETWL), lightsReturn, null);
-                            jTextAreaStatus.append(Utilities.timeStamp(lightsReturn.toString() + "\n").toString());
+                            String lightsReturnString = lightsReturn.toString();
+                            jTextAreaStatus.append(Utilities.timeStamp(lightsReturnString + "\n").toString());
+                            if(success) {
+                                String[] lightsReturnTokens = lightsReturnString.split("\\s+");
+                                int numWLs = lightsReturnTokens.length - 1;
+                                if(numWLs > 0) {
+                                    String wlMessage = "It looks like your lights have " + numWLs + " controllable wavelengths. Your \"setwlsrelpower\" command should have " + numWLs + " values like: setwlsrelpower ";
+                                    for(Integer i = 1; i <= numWLs; i++) {
+                                        wlMessage += "value" + i.toString() + " ";
+                                    }
+                                    wlMessage = wlMessage.trim() + "\n";
+                                    jTextAreaStatus.append(Utilities.timeStamp(wlMessage).toString());                                    
+                                }
+                            }
                         } catch(final InterruptedException e) {
                         } catch(final Exception e) {
                             System.out.println(e.getMessage());
