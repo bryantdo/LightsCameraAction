@@ -8,7 +8,7 @@ This software is a plugin for Micro-Manger (https://www.micro-manager.org/) used
 
 At its core this plugin conducts some number of image acquisition events, where each image acquisition event is structured as:
 * Send "stopSchedule" command to lights;
-* Send a wavelengths command to lights, by default "setAll 0", ie. turn lights off;
+* Send a wavelengths command to lights, by default "setAll 0", ie. turn lights off. The actual WL command is user modifiable;
 * Wait some amount of time, specified by the user;
 * Acquire an image using the Micro-Manager API. Camera settings such as exposure time should be specified in the Micro-Manager interface;
 * Send a "startSchedule" command to the lights.
