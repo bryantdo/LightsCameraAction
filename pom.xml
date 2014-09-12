@@ -5,6 +5,12 @@
     <artifactId>LightsCameraAction</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+        <Micro-ManagerInstallDirectory>/Applications/Micro-Manager1.4</Micro-ManagerInstallDirectory>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>joda-time</groupId>
@@ -17,33 +23,72 @@
             <artifactId>org.micromanager.api.MMAcqEngine</artifactId>
             <version>1.4.18</version> 
             <scope>system</scope>
-            <systemPath>/Applications/Micro-Manager1.4/plugins/Micro-Manager/MMAcqEngine.jar</systemPath>
+            <systemPath>${Micro-ManagerInstallDirectory}/plugins/Micro-Manager/MMAcqEngine.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>uManager</groupId>  
             <artifactId>org.micromanager.api.MMCoreJ</artifactId>  
             <version>1.4.18</version> 
             <scope>system</scope>
-            <systemPath>/Applications/Micro-Manager1.4/plugins/Micro-Manager/MMCoreJ.jar</systemPath>
+            <systemPath>${Micro-ManagerInstallDirectory}/plugins/Micro-Manager/MMCoreJ.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>uManager</groupId>  
             <artifactId>org.micromanager.api.MMJ_</artifactId>  
             <version>1.4.18</version> 
             <scope>system</scope>
-            <systemPath>/Applications/Micro-Manager1.4/plugins/Micro-Manager/MMJ_.jar</systemPath>
+            <systemPath>${Micro-ManagerInstallDirectory}/plugins/Micro-Manager/MMJ_.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>uManager</groupId>  
             <artifactId>org.ImageJ.ij</artifactId>  
             <version>1.4.18</version> 
             <scope>system</scope>
-            <systemPath>/Applications/Micro-Manager1.4/ij.jar</systemPath>
+            <systemPath>${Micro-ManagerInstallDirectory}/ij.jar</systemPath>
         </dependency>
     </dependencies>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.6</maven.compiler.source>
-        <maven.compiler.target>1.6</maven.compiler.target>
-    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.8</version>
+                <executions>
+                  <execution>
+                    <id>copy</id>
+                    <phase>package</phase>
+                    <goals>
+                      <goal>copy</goal>
+                    </goals>
+                    <configuration>
+                      <artifactItems>
+                        <artifactItem>
+                          <groupId>joda-time</groupId>
+                          <artifactId>joda-time</artifactId>
+                          <version>2.4</version>
+                          <type>jar</type>
+                          <overWrite>true</overWrite>
+                          <outputDirectory>${Micro-ManagerInstallDirectory}/plugins/Micro-Manager</outputDirectory>
+                        </artifactItem>
+                      </artifactItems>
+                    </configuration>
+                  </execution>
+                </executions>
+              </plugin>
+              <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                  <outputDirectory>${Micro-ManagerInstallDirectory}/mmplugins</outputDirectory>
+                </configuration>
+              </plugin>
+        </plugins>
+    </build>
+    
+    
+    
+    
+    
+    
 </project>
