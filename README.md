@@ -62,7 +62,7 @@ Not yet implemented.
 Sends over Telnet a "getwl" command using the IP address and port specified in the Configuration group and prints the lights' reply, allowing the user to specify an appropriate "setwlsrelpower" command.
 
 ####WL Command
-By default the wavelengths command is "setall0", meaning that lights will be set as "off before imaging. This can be changed by the user, most likely replaced with a "setwlsrelpower" command.
+By default the wavelengths command is "setall0", meaning that lights will be set as "off" before imaging. This can be changed by the user, most likely replaced with a "setwlsrelpower" command.
 
 ###Run
 ####Start Imaging Job
