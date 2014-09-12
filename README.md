@@ -56,7 +56,7 @@ Sends over Telnet a "hello" command using the IP address and port specified in t
 ####Test Image Acquisition
 Not yet implemented.
 
-###Wavelenths
+###Wavelengths
 ####Send getwl command
 Sends over Telnet a "getwl" command using the IP address and port specified in the Configuration group and prints the lights' reply, allowing the user to specify an appropriate "setwlsrelpower" command.
 
