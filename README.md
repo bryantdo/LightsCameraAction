@@ -24,6 +24,7 @@ To use this plugin, if your pom.xml file has been appropriately edited, simply c
 
 ##Quick-Start Guide
 To get this working ASAP:
+
 1. Download and install Micro-Manager (https://www.micro-manager.org/)
 2. Download and install Java SDK for your platform (http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html), preferentially Java version 1.7 but newer versions /should/ work, as long as the caveats uner Assumptions, above, are heeded. Specifically, the versions of java used to compile the plugin, and run Micro-Manager, must match.
 3. Download and install NetBeans (https://netbeans.org/)
