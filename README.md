@@ -32,7 +32,7 @@ To get this working ASAP:
 5. Open NetBeans, then file menu -> open project -> open the cloned git repo
 6. Verify Micro-Manager install directory (line 12 in pom.xml, included with repo)
 7. Clean and build
-8. Launch Micro-Manager, plugins menu -> select LightsCamreaAction
+8. Launch Micro-Manager, plugins menu -> select LightsCameraAction
 
 ##Plugin Functions
 Here we discuss each component of the plugin.
