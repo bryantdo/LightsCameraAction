@@ -28,7 +28,7 @@ To get this working ASAP:
 1. Download and install Micro-Manager (https://www.micro-manager.org/)
 2. Download and install Java SDK for your platform (http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html), preferentially Java version 1.6 but newer versions *should* work, as long as the caveats uner Assumptions, above, are heeded. Specifically, the versions of java used to compile the plugin, and run Micro-Manager, must match.
 3. Download and install NetBeans (https://netbeans.org/)
-4. Clone this repository with the command git clone https://github.com/bryantdo/LightsCameraAction.git
+4. Clone this repository with the command ```git clone https://github.com/bryantdo/LightsCameraAction.git```
 5. Open NetBeans, then file menu -> open project -> open the cloned git repo
 6. Verify Micro-Manager install directory (line 12 in pom.xml, included with repo)
 7. Clean and build
