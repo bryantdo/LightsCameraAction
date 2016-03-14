@@ -1,7 +1,7 @@
 package org.bryantd.lightscameraaction;
 
 import mmcorej.CMMCore;
-import org.micromanager.MMStudioMainFrame;
+import org.micromanager.MMStudio;
 import org.micromanager.acquisition.AcquisitionEngine;
 import org.micromanager.api.ScriptInterface;
 
@@ -9,7 +9,7 @@ public class LightsCameraPlugin implements org.micromanager.api.MMPlugin {
     public static String menuName = "LightsCameraAction";
     public static String tooltipDescription = "Tightly integrating imaging platforms with Heliospectra lights.";
     private CMMCore core_;
-    private MMStudioMainFrame gui_;
+    private MMStudio gui_;
     private AcquisitionEngine acq_;
     private static PluginInterface dialog_;
 
@@ -24,7 +24,7 @@ public class LightsCameraPlugin implements org.micromanager.api.MMPlugin {
 
     @Override
     public void setApp(ScriptInterface app) {
-        gui_ = (MMStudioMainFrame) app;
+        gui_ = (MMStudio) app;
         core_ = app.getMMCore();
         acq_ = getGui_().getAcquisitionEngine();
     }
@@ -61,7 +61,7 @@ public class LightsCameraPlugin implements org.micromanager.api.MMPlugin {
         return core_;
     }
 
-    public MMStudioMainFrame getGui_() {
+    public MMStudio getGui_() {
         return gui_;
     }
 }
